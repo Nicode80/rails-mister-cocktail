@@ -1,0 +1,9 @@
+<nav class="navbar navbar-light bg-light">
+  <%= link_to "🍸 COCKTAILS !", cocktails_path, class: "navbar-brand" %>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search Cocktail" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit">Search</button>
+    <%= link_to "Add New Cocktail", new_cocktail_path, class: "btn btn-outline-primary my-2 my-sm-0" %>
+  </form>
+</nav>
+
