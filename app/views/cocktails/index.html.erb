@@ -11,7 +11,11 @@
         <%= link_to cocktail_path(cocktail), class: "text-decoration-none" do %>
           <div class="card-category m-3"
           style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-          url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+          url(<% if cocktail.photo.attached? %>
+              '<%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>'
+              <% else %>
+              'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg'
+              <% end %>)">
             <h3><%= cocktail.name %></h3>
           </div>
         <% end %>
@@ -19,7 +23,3 @@
     <% end %>
   </div>
 </div>
-
-
-
-
