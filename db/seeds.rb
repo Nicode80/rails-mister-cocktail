@@ -23,3 +23,8 @@ ingredients = JSON.parse(buffer)
 ingredients['drinks'].each do |ingredient|
   Ingredient.create!(name: ingredient["strIngredient1"])
 end
+
+cocktails = {
+  Mojito: {},
+  Margarita: {},
+  }
