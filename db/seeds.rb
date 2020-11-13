@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # require 'json'
-# require 'open-uri'
+require 'open-uri'
 
 # Ingredient.destroy_all if Rails.env.development?
 puts "start"
@@ -21,6 +21,5 @@ buffer = open(url).read
 ingredients = JSON.parse(buffer)
 
 ingredients['drinks'].each do |ingredient|
-  # Ingredient.create!(name: ingredient["strIngredient1"])
-  puts ingredient["strIngredient1"]
+  Ingredient.create!(name: ingredient["strIngredient1"])
 end

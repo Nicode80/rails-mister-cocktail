@@ -17,13 +17,16 @@
     </ul>
   </div>
 
-  <h1>new dose</h1>
+  <div class="m-4">
+    <h1>Add ingredients</h1>
 
-  <%= simple_form_for [@cocktail, @dose] do |f| %>
-    <%= f.input :description %>
-    <%= f.association :ingredient %>
-    <%= f.button :submit, "Add Ingredient" %>
-  <% end %>
+    <%= simple_form_for [@cocktail, @dose] do |f| %>
+      <%= f.input :description %>
+      <%= f.association :ingredient, class: "js-example-basic-single" %>
+      <%= f.button :submit, "Add Ingredient" %>
+    <% end %>
+
+  </div>
 
 </div>
 
