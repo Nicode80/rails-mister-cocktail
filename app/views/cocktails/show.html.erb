@@ -4,13 +4,29 @@
   </div>
 </div>
 
+<div class="container d-flex">
+  <div class="w-50 superimposed">
+    <ul class="list-group list-group-flush rounded-lg">
+      <li class="list-group-item list-group-item-primary text-center"><h3 class="m-0 p-2">Ingredients :</h3></li>
+      <% @cocktail.doses.each do |dose| %>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span><%= dose.description %> of <%= dose.ingredient.name %></span>
+        <%= link_to 'Destroy', dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger" %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
 
-<h3>Ingredients :</h3>
+  <h1>new dose</h1>
 
-<% @cocktail.doses.each do |dose| %>
-  <%= dose.ingredient.name %>
-  <%= link_to 'Destroy', dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+    <%= f.input :description %>
+    <%= f.association :ingredient %>
+    <%= f.button :submit, "Add Ingredient" %>
+  <% end %>
 
-<%= link_to "add dose", new_cocktail_dose_path(@cocktail) %>
+</div>
+
+
+        <%#= link_to "Add Ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-outline-secondary" %>
 
