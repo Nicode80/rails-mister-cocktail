@@ -14,7 +14,7 @@
           url(<% if cocktail.photo.attached? %>
               '<%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>'
               <% else %>
-              'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg'
+              'https://images.unsplash.com/photo-1568644396922-5c3bfae12521?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80'
               <% end %>)">
             <h3><%= cocktail.name %></h3>
           </div>
